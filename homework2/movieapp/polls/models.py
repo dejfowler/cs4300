@@ -4,7 +4,7 @@ from django.db import models
 class Movie(models.Model):
     title = models.CharField(max_length=50)
     Description = models.CharField(max_length=200)
-    date = models.DateTimeField("date released")
+    date = models.IntegerField(default=0)
     duration = models.IntegerField(default=0)
 
 class Seat(models.Model):

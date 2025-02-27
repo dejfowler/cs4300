@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from polls import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index, name="index"),
+    path('movies/', views.MovieViewSet, name="movies"),
+    path('seat/', views.SeatViewSet, name="seats"),
+    path('booking/', views.BookingViewSet, name="bookings")
 ]

@@ -1,0 +1,16 @@
+{% extends "bookings/base.html" %}
+{% block title %} Seat booking {% endblock %}
+{% block content %}
+    <h1> <span class="badge text-bg-secondary text-center align-center" >Available Seats</span></h1>
+    <ul class ="list - group ">
+        {% for movie in movies %}
+        <li class ="list-group-item ">
+            <h5> helllo</h5>
+            <h5 >{{ movie.title }} </h5 >
+            <p>{{ movie.description }} </p>
+            <a href ="#" class ="btn btn - primary ">
+                Book Now </a>
+        </li >
+        {% endfor %}
+    </ul >
+{% endblock %}
