@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import Movie
+from .models import Movie, Seat
 
 def index(request):
     template = loader.get_template("bookings/index.html")
@@ -12,17 +12,17 @@ def index(request):
 def MovieViewSet(request):
     template = loader.get_template("bookings/movie_list.html")
     print(Movie.objects.all())
-    context = {}
+    context = {'movielist': Movie.objects.all()}
     return render(request, "bookings/movie_list.html", context)
-
-def MovieView(request, movie_id):
-    movie = get_object_or_404(Movie, pk=movie_id)
-    return render(request, "polls/movies", {"movie": movie})
 
 def SeatViewSet(request):
     template = loader.get_template("bookings/seat_booking.html")
-    context = {}
+    seats = Seat.objects.all()
+    movie = Movie.objects.get(pk=1)
+    context = {'Seats': seats, 'Movie': movie}
     return render(request, "bookings/seat_booking.html", context)
 
 def BookingViewSet(request):
-    return HttpResponse("You're voting on question bookings")
+    template = loader.get_template("bookings/booking_history.html")
+    context = {}
+    return render(request, "bookings/booking_history.html", context)

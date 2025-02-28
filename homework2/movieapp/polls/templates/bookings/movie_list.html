@@ -1,14 +1,20 @@
 {% extends "bookings/base.html" %}
 {% block title %} Movie List {% endblock %}
 {% block content %}
-    <h1> <span class="badge text-bg-secondary col-3">Available Movies</span></h1>
+    <h1> 
+        <div class="row">
+            <div class="col-3"></div>
+            <span class="badge text-bg-secondary col-6 border border-white">Available Movies</span>
+        </div>
+    </h1>
     <div class="container-fluid">
         <ul class ="list-group">
-            {% for x in Movie %}
-            <li class ="list-group-item ">
+            {% for x in movielist %}
+            <li class ="list-group-item bg-primary-subtle border border-black">
                 <h5 >{{ x.title }} </h5 >
-                <p>{{ x.description }} </p>
-                <a href ="#" class ="btn btn-primary ">
+                <p>Year Released: {{ x.date }} | Runtime: {{ x.duration }} minutes</p>
+                <p>Description: {{ x.Description }} </p>
+                <a href ="{% url 'something' x.id %}" class ="btn btn-primary ">
                     Book Now </a>
             </li >
             {% endfor %}

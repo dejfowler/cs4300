@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('movies/', views.MovieViewSet, name="movies"),
     path('seat/', views.SeatViewSet, name="seats"),
-    path('booking/', views.BookingViewSet, name="bookings")
+    path('booking/', views.BookingViewSet, name="bookings"),
+    path('seat/<int:movie_id>', views.SeatViewSet, name="something")
 ]
