@@ -14,7 +14,7 @@
                 <h5 >{{ x.title }} </h5 >
                 <p>Year Released: {{ x.date }} | Runtime: {{ x.duration }} minutes</p>
                 <p>Description: {{ x.Description }} </p>
-                <a href ="{% url 'something' x.id %}" class ="btn btn-primary ">
+                <a href ="{% url 'seats' x.id %}" class ="btn btn-primary ">
                     Book Now </a>
             </li >
             {% endfor %}
